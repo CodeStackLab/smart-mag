@@ -338,14 +338,14 @@ function nancy_customize_register($wp_customize) {
     ));
 
     // Profile Image
-    $wp_customize->add_setting('nancy_profile_image', array(
-        'default'   => get_stylesheet_directory_uri() . '/images/nancy-profile.jpg',
+    $wp_customize->add_setting('nancy_profile_image_v2', array(
+        'default'   => get_stylesheet_directory_uri() . '/images/nancy-profile-v2.jpg',
         'transport' => 'refresh',
     ));
-    $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'nancy_profile_image', array(
+    $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'nancy_profile_image_v2', array(
         'label'    => __('Author Profile Image', 'smartmag'),
         'section'  => 'nancy_page_settings',
-        'settings' => 'nancy_profile_image',
+        'settings' => 'nancy_profile_image_v2',
     )));
 
     // Book Cover Image

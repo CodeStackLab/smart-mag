@@ -287,7 +287,7 @@ get_header();
             <!-- Left Sticky Sidebar containing Large Portrait Photo & Loves -->
             <div class="nancy-hero-left">
                 <div class="nancy-hero-image-wrap">
-                    <img class="nancy-hero-image" src="<?php echo esc_url(get_theme_mod('nancy_profile_image', get_stylesheet_directory_uri() . '/images/nancy-profile.jpg')); ?>" alt="Nancy Muchiri - Meet Nancy">
+                    <img class="nancy-hero-image" src="<?php echo esc_url(get_theme_mod('nancy_profile_image_v2', get_stylesheet_directory_uri() . '/images/nancy-profile-v2.jpg')); ?>" alt="Nancy Muchiri - Meet Nancy">
                 </div>
                 
                 <!-- Social Connect Links -->

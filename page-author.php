@@ -74,6 +74,7 @@ get_header();
 
     .nancy-hero-image {
         width: 100%;
+        max-width: 100% !important; /* Override global 250px max-width from Customizer */
         height: 100%;
         display: block;
         object-fit: cover;

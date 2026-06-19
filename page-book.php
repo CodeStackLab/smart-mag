@@ -213,6 +213,7 @@ get_header();
     }
 
     .nancy-video-wrapper {
+        position: relative;
         max-width: 800px;
         margin: 0 auto;
         border-radius: 16px;
@@ -224,6 +225,41 @@ get_header();
     .nancy-video-wrapper video {
         width: 100%;
         display: block;
+    }
+
+    .nancy-video-play-overlay {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: rgba(200, 122, 83, 0.85);
+        color: #fff;
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        z-index: 10;
+        transition: all 0.3s ease;
+    }
+
+    .nancy-video-play-overlay:hover {
+        background: rgba(160, 89, 54, 0.95);
+        transform: translate(-50%, -50%) scale(1.1);
+    }
+
+    .nancy-video-play-overlay svg {
+        width: 35px;
+        height: 35px;
+        fill: currentColor;
+        margin-left: 5px;
+    }
+
+    .nancy-video-play-overlay.hidden {
+        opacity: 0;
+        pointer-events: none;
     }
 
     .nancy-video-controls {
@@ -347,7 +383,7 @@ get_header();
         <section id="the-second-bloom" class="nancy-section nancy-book-section">
             <div class="nancy-book-left">
                 <div class="nancy-book-cover-wrap">
-                    <img class="nancy-book-cover" src="<?php echo esc_url(get_stylesheet_directory_uri() . '/images/book-cover.jpg'); ?>" alt="The Second Bloom - Book Cover by Nancy Muchiri">
+                    <img class="nancy-book-cover" src="<?php echo esc_url(get_theme_mod('nancy_book_cover', get_stylesheet_directory_uri() . '/images/book-cover.jpg')); ?>" alt="The Second Bloom - Book Cover by Nancy Muchiri">
                 </div>
             </div>
             <div class="nancy-book-details">
@@ -419,17 +455,18 @@ get_header();
             <h2>The Second Bloom Story</h2>
             <div class="nancy-video-subtitle">Watch the inspiring trailer about reclaiming midlife, wellness, and self-love</div>
             
-            <div class="nancy-video-wrapper">
-                <video id="nancyBookVideo" playsinline preload="metadata" poster="https://i0wp.com/everydaymindfulmoments.blog/wp-content/uploads/2026/06/The-second-bloom-new-page.jpg?resize=768%2C511&ssl=1">
+            <div class="nancy-video-wrapper" id="nancyVideoWrap">
+                <video id="nancyBookVideo" playsinline preload="metadata" poster="https://i0.wp.com/everydaymindfulmoments.blog/wp-content/uploads/2026/06/The-second-bloom-new-page.jpg?resize=768%2C511&ssl=1" controls>
                     <source src="https://videos.files.wordpress.com/McJnkqel/second-bloom.mov" type="video/quicktime" />
                     <source src="https://videos.files.wordpress.com/McJnkqel/second-bloom.mov" type="video/mp4" />
                     Your browser does not support video playback.
                 </video>
+                <div class="nancy-video-play-overlay" id="nancyPlayOverlay">
+                    <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                </div>
             </div>
             
-            <div class="nancy-video-controls">
-                <button id="nancyPlayBtn" class="nancy-vid-btn" type="button">▶ Play Video</button>
-                <button id="nancyMuteBtn" class="nancy-vid-btn" type="button">🔊 Mute</button>
+            <div class="nancy-video-controls" style="margin-top: 25px;">
                 <a class="nancy-vid-btn" href="https://videos.files.wordpress.com/McJnkqel/second-bloom.mov" download="second-bloom.mov">⬇ Download Video</a>
             </div>
         </section>
@@ -485,43 +522,26 @@ get_header();
     // Video player functionality
     document.addEventListener('DOMContentLoaded', function() {
         const video = document.getElementById('nancyBookVideo');
-        const playBtn = document.getElementById('nancyPlayBtn');
-        const muteBtn = document.getElementById('nancyMuteBtn');
+        const overlay = document.getElementById('nancyPlayOverlay');
 
-        if (video && playBtn) {
-            playBtn.addEventListener('click', function() {
-                if (video.paused || video.ended) {
-                    video.play().then(() => {
-                        playBtn.textContent = '⏸ Pause Video';
-                    }).catch(error => {
-                        console.error('Video play failed:', error);
-                    });
-                } else {
-                    video.pause();
-                    playBtn.textContent = '▶ Play Video';
-                }
+        if (video && overlay) {
+            overlay.addEventListener('click', function() {
+                video.play().then(() => {
+                    overlay.classList.add('hidden');
+                }).catch(error => {
+                    console.error('Video play failed:', error);
+                });
             });
 
-            // Keep button in sync with native video controls
+            // Keep overlay hidden while playing, show when paused/ended
             video.addEventListener('play', () => {
-                playBtn.textContent = '⏸ Pause Video';
+                overlay.classList.add('hidden');
             });
             video.addEventListener('pause', () => {
-                playBtn.textContent = '▶ Play Video';
+                overlay.classList.remove('hidden');
             });
             video.addEventListener('ended', () => {
-                playBtn.textContent = '▶ Play Video';
-            });
-        }
-
-        if (video && muteBtn) {
-            muteBtn.addEventListener('click', function() {
-                video.muted = !video.muted;
-                if (video.muted) {
-                    muteBtn.textContent = '🔇 Unmute';
-                } else {
-                    muteBtn.textContent = '🔊 Mute';
-                }
+                overlay.classList.remove('hidden');
             });
         }
     });

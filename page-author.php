@@ -282,21 +282,21 @@ get_header();
             <!-- Left Sticky Sidebar containing Large Portrait Photo & Loves -->
             <div class="nancy-hero-left">
                 <div class="nancy-hero-image-wrap">
-                    <img class="nancy-hero-image" src="<?php echo esc_url(get_stylesheet_directory_uri() . '/images/nancy-profile.jpg'); ?>" alt="Nancy Muchiri - Meet Nancy">
+                    <img class="nancy-hero-image" src="<?php echo esc_url(get_theme_mod('nancy_profile_image', get_stylesheet_directory_uri() . '/images/nancy-profile.jpg')); ?>" alt="Nancy Muchiri - Meet Nancy">
                 </div>
                 
                 <!-- Social Connect Links -->
                 <div class="nancy-social-list">
                     <!-- Facebook Link -->
-                    <a class="nancy-social-link" href="https://www.facebook.com/everydaymindfulmoments/" target="_blank" title="Facebook">
+                    <a class="nancy-social-link" href="<?php echo esc_url(get_theme_mod('nancy_facebook_url', 'https://www.facebook.com/everydaymindfulmoments/')); ?>" target="_blank" title="Facebook">
                         <svg viewBox="0 0 24 24"><path d="M9 8H7v3h2v9h4v-9h3.6l.4-3h-4V6.5C13 5.7 13.3 5 14.5 5H17V1.1c-.4-.1-1.9-.3-3.6-.3C9.8.8 9 3.2 9 6.2V8z"/></svg>
                     </a>
                     <!-- TikTok Link -->
-                    <a class="nancy-social-link" href="https://www.tiktok.com/@ayomifybooktok" target="_blank" title="TikTok">
+                    <a class="nancy-social-link" href="<?php echo esc_url(get_theme_mod('nancy_tiktok_url', 'https://www.tiktok.com/@ayomifybooktok')); ?>" target="_blank" title="TikTok">
                         <svg viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.02 1.59 4.23.94 1.16 2.27 1.95 3.73 2.23v3.83c-1.39-.01-2.77-.38-3.99-1.09-.6-.35-1.14-.79-1.61-1.3-.08 2.94-.04 5.88-.04 8.81-.03 2.14-.66 4.3-1.91 6.01-1.57 2.18-4.14 3.59-6.85 3.79-2.96.22-6.07-.86-7.85-3.25-1.89-2.52-2.13-6.12-.66-8.87 1.34-2.55 4.14-4.22 7.07-4.24v3.91c-1.33.02-2.69.57-3.51 1.63-.99 1.25-.97 3.22.07 4.41.97 1.15 2.65 1.51 3.96.84.88-.44 1.45-1.32 1.56-2.3.06-2.51.02-5.02.04-7.53v-12.2z"/></svg>
                     </a>
                     <!-- Instagram Link -->
-                    <a class="nancy-social-link" href="https://www.instagram.com/everydaymindfulmoments/" target="_blank" title="Instagram">
+                    <a class="nancy-social-link" href="<?php echo esc_url(get_theme_mod('nancy_instagram_url', 'https://www.instagram.com/everydaymindfulmoments/')); ?>" target="_blank" title="Instagram">
                         <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
                     </a>
                     <!-- Blog Home Icon -->

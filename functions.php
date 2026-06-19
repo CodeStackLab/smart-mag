@@ -327,3 +327,66 @@ function smartmag_force_update_footer_copyright_2026_v4() {
     
     update_option('footer_copyright_migration_v4', true);
 }
+
+// --- Customizer Settings for Nancy Author & Book Pages ---
+add_action('customize_register', 'nancy_customize_register');
+function nancy_customize_register($wp_customize) {
+    // Add Section
+    $wp_customize->add_section('nancy_page_settings', array(
+        'title'    => __('Nancy Pages Settings', 'smartmag'),
+        'priority' => 120,
+    ));
+
+    // Profile Image
+    $wp_customize->add_setting('nancy_profile_image', array(
+        'default'   => get_stylesheet_directory_uri() . '/images/nancy-profile.jpg',
+        'transport' => 'refresh',
+    ));
+    $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'nancy_profile_image', array(
+        'label'    => __('Author Profile Image', 'smartmag'),
+        'section'  => 'nancy_page_settings',
+        'settings' => 'nancy_profile_image',
+    )));
+
+    // Book Cover Image
+    $wp_customize->add_setting('nancy_book_cover', array(
+        'default'   => get_stylesheet_directory_uri() . '/images/book-cover.jpg',
+        'transport' => 'refresh',
+    ));
+    $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'nancy_book_cover', array(
+        'label'    => __('Book Cover Image', 'smartmag'),
+        'section'  => 'nancy_page_settings',
+        'settings' => 'nancy_book_cover',
+    )));
+
+    // Social Links
+    $wp_customize->add_setting('nancy_facebook_url', array(
+        'default'   => 'https://www.facebook.com/everydaymindfulmoments/',
+        'transport' => 'refresh',
+    ));
+    $wp_customize->add_control('nancy_facebook_url', array(
+        'label'    => __('Facebook URL', 'smartmag'),
+        'section'  => 'nancy_page_settings',
+        'type'     => 'url',
+    ));
+
+    $wp_customize->add_setting('nancy_tiktok_url', array(
+        'default'   => 'https://www.tiktok.com/@ayomifybooktok',
+        'transport' => 'refresh',
+    ));
+    $wp_customize->add_control('nancy_tiktok_url', array(
+        'label'    => __('TikTok URL', 'smartmag'),
+        'section'  => 'nancy_page_settings',
+        'type'     => 'url',
+    ));
+
+    $wp_customize->add_setting('nancy_instagram_url', array(
+        'default'   => 'https://www.instagram.com/everydaymindfulmoments/',
+        'transport' => 'refresh',
+    ));
+    $wp_customize->add_control('nancy_instagram_url', array(
+        'label'    => __('Instagram URL', 'smartmag'),
+        'section'  => 'nancy_page_settings',
+        'type'     => 'url',
+    ));
+}

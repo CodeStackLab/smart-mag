@@ -233,14 +233,17 @@ get_header();
         display: grid;
         grid-template-columns: 0.8fr 1.2fr;
         gap: 50px;
-        align-items: center;
+        align-items: start;
         background: var(--nancy-card-bg);
         border-radius: 24px;
         padding: 60px;
         border: 1px solid var(--nancy-border);
     }
 
-    .nancy-book-cover-wrap {
+    .nancy-book-left {
+        position: -webkit-sticky;
+        position: sticky;
+        top: 40px;
         text-align: center;
     }
 
@@ -285,6 +288,7 @@ get_header();
     .nancy-book-details p {
         font-size: 1.05rem;
         margin-bottom: 20px;
+        text-align: justify;
     }
 
     /* Mission Box */
@@ -306,8 +310,12 @@ get_header();
 
     .nancy-mission-box p {
         font-size: 1.1rem;
-        margin: 0;
+        margin-bottom: 15px;
         line-height: 1.7;
+    }
+
+    .nancy-mission-box p:last-child {
+        margin-bottom: 0;
     }
 
     /* Letter Card */
@@ -333,7 +341,7 @@ get_header();
 
     .nancy-letter-card p {
         font-size: 1.1rem;
-        margin-bottom: 20px;
+        margin-bottom: 15px;
     }
 
     .nancy-signature {
@@ -491,6 +499,10 @@ get_header();
             gap: 40px;
         }
         
+        .nancy-book-left {
+            position: static;
+        }
+
         .nancy-book-cover-wrap {
             max-width: 260px;
             margin: 0 auto;
@@ -603,23 +615,52 @@ get_header();
 
         <!-- BOOK SHOWCASE SECTION -->
         <section id="the-second-bloom" class="nancy-section nancy-book-section">
-            <div class="nancy-book-cover-wrap">
-                <img class="nancy-book-cover" src="<?php echo esc_url(get_stylesheet_directory_uri() . '/images/book-cover.jpg'); ?>" alt="The Second Bloom - Book Cover by Nancy Muchiri">
+            <div class="nancy-book-left">
+                <div class="nancy-book-cover-wrap">
+                    <img class="nancy-book-cover" src="<?php echo esc_url(get_stylesheet_directory_uri() . '/images/book-cover.jpg'); ?>" alt="The Second Bloom - Book Cover by Nancy Muchiri">
+                </div>
             </div>
             <div class="nancy-book-details">
                 <h2>The Second Bloom</h2>
                 <div class="nancy-book-tagline">Helping Women Reclaim Their Power, Purpose, and Joy Through Midlife and Perimenopause</div>
                 
                 <h3>Welcome</h3>
-                <p>There comes a moment in a woman's life when everything begins to change. The body changes. The children grow up. Relationships evolve. Careers shift. Priorities become clearer. And somewhere in the midst of it all, many women find themselves asking a question they never expected: <strong>Who am I now?</strong></p>
-                <p>Midlife is not an ending. It is a turning point—a powerful invitation to rediscover who you are beyond the roles, responsibilities, and expectations that have shaped your life. It is the season where wisdom deepens, priorities become clearer, and women finally give themselves permission to become the person they were always meant to be.</p>
-                <p>That is the heart behind my work. I am passionate about helping women navigate perimenopause, prepare for menopause, embrace healthy aging, reclaim their confidence, and create lives filled with purpose, wellness, and joy.</p>
+                <p>There comes a moment in a woman's life when everything begins to change.</p>
+                <p>The body changes. The children grow up. Relationships evolve. Careers shift. Priorities become clearer.</p>
+                <p>And somewhere in the midst of it all, many women find themselves asking a question they never expected:</p>
+                <p><strong>Who am I now?</strong></p>
+                <p>Midlife is not an ending. It is a turning point—a powerful invitation to rediscover who you are beyond the roles, responsibilities, and expectations that have shaped your life.</p>
+                <p>It is the season where wisdom deepens, priorities become clearer, and women finally give themselves permission to become the person they were always meant to be.</p>
+                <p>That is the heart behind my work.</p>
+                <p>I am passionate about helping women navigate perimenopause, prepare for menopause, embrace healthy aging, reclaim their confidence, and create lives filled with purpose, wellness, and joy.</p>
+
+                <h3>My Story</h3>
+                <p>Like many women entering midlife, I began noticing changes that I wasn't fully prepared for.</p>
+                <p>The changes were subtle at first—shifts in energy, emotions, sleep, and the way I experienced everyday life. As I learned more, I discovered that I was entering perimenopause, the natural transition leading to menopause.</p>
+                <p>What surprised me most was not just the physical changes, but how little many women know about this stage of life until they are living it.</p>
+                <p>I found myself searching for answers, seeking information, and having conversations with other women who were experiencing similar questions and concerns.</p>
+                <p>The more I learned, the more I realized that countless women are navigating this transition without the support, education, and open dialogue they deserve.</p>
+                <p>That realization became the inspiration for The Second Bloom.</p>
+                <p>I may not have reached menopause yet, but I am walking this journey alongside millions of women who are navigating the changes of midlife, preparing for what's ahead, and discovering new possibilities for growth, wellness, and self-discovery.</p>
+                <p>This book is written from a place of curiosity, research, compassion, and a deep desire to help women feel informed, empowered, and less alone.</p>
 
                 <h3>Why I Wrote The Second Bloom</h3>
-                <p>I wrote this book for every woman who has ever felt invisible. For every woman who has questioned her worth because her body was changing. For every woman who felt unprepared for menopause and overwhelmed by the physical and emotional shifts it brought. For every woman who has spent years caring for everyone else and suddenly realized it was time to care for herself. I wanted women to know they are not alone. I wanted them to understand that midlife is not a season of decline but a season of rediscovery.</p>
+                <p>I wrote this book for every woman who has ever felt invisible.</p>
+                <p>For every woman who has questioned her worth because her body was changing.</p>
+                <p>For every woman who felt unprepared for menopause and overwhelmed by the physical and emotional shifts it brought.</p>
+                <p>For every woman who has spent years caring for everyone else and suddenly realized it was time to care for herself.</p>
+                <p>I wanted women to know they are not alone.</p>
+                <p>I wanted them to understand that midlife is not a season of decline but a season of rediscovery.</p>
 
                 <h3>The Second Bloom Philosophy</h3>
-                <p>I believe every woman deserves a second bloom. Not because she has lost herself, but because she is evolving. The second bloom is about embracing change rather than fearing it. It is about choosing growth instead of limitation. It is about recognizing that your wisdom, resilience, and life experiences have prepared you for a future that can be even more meaningful than your past. The second bloom is not about becoming someone new—it is about becoming more fully yourself.</p>
+                <p>I believe every woman deserves a second bloom.</p>
+                <p>Not because she has lost herself.</p>
+                <p>But because she is evolving.</p>
+                <p>The second bloom is about embracing change rather than fearing it.</p>
+                <p>It is about choosing growth instead of limitation.</p>
+                <p>It is about recognizing that your wisdom, resilience, and life experiences have prepared you for a future that can be even more meaningful than your past.</p>
+                <p>The second bloom is not about becoming someone new.</p>
+                <p>It is about becoming more fully yourself.</p>
 
                 <div style="margin-top: 35px;">
                     <a class="nancy-btn" href="https://www.amazon.com/Second-Bloom-Midlife-Identity-Yourself-ebook/dp/B0GZKWPYG2/ref=sr_1_1?cvid=1U5QJ5MYOO0FC&dib=eyJ2IjoiMSJ9.Qv6-slpKtRj2Rq9qm9jDOQ.VGyMrvF9iTYYtaD7hS61ARX9hEjYuRa_ZIhQkehX6Ow&dib_tag=se&keywords=second+bloom+nancy+muchiri&qid=1778422929&sprefix=second+bloom+nancy+muchiri%2Caps%2C138&sr=8-1#averageCustomerReviewsAnchor" target="_blank">
@@ -632,7 +673,12 @@ get_header();
         <!-- CORE MISSION SECTION -->
         <section class="nancy-section nancy-mission-box">
             <h3>My Mission</h3>
-            <p>My mission is to change the conversation around menopause and midlife. For too long, women have navigated these transitions in silence. Women deserve education. Women deserve support. Women deserve honest conversations about what happens during perimenopause, menopause, and beyond. Most importantly, women deserve to know that this stage of life does not diminish their value—it can reveal their strength.</p>
+            <p>My mission is to change the conversation around menopause and midlife.</p>
+            <p>For too long, women have navigated these transitions in silence.</p>
+            <p>Women deserve education.</p>
+            <p>Women deserve support.</p>
+            <p>Women deserve honest conversations about what happens during perimenopause, menopause, and beyond.</p>
+            <p>Most importantly, women deserve to know that this stage of life does not diminish their value—it can reveal their strength.</p>
         </section>
 
         <!-- VIDEO SECTION -->
@@ -659,8 +705,14 @@ get_header();
         <section class="nancy-section nancy-letter-card">
             <h3>A Personal Message to You</h3>
             <p>If you are navigating perimenopause, questioning your next steps, or wondering whether your best years are behind you, I want you to hear this:</p>
-            <p><strong>You are not fading. You are not losing yourself. You are not running out of time.</strong></p>
-            <p>You are entering a season of wisdom, clarity, courage, and possibility. Your story is still being written. Your purpose still matters. Your dreams are still valid. And your second bloom may be the most beautiful chapter yet.</p>
+            <p><strong>You are not fading.</strong></p>
+            <p><strong>You are not losing yourself.</strong></p>
+            <p><strong>You are not running out of time.</strong></p>
+            <p>You are entering a season of wisdom, clarity, courage, and possibility.</p>
+            <p>Your story is still being written.</p>
+            <p>Your purpose still matters.</p>
+            <p>Your dreams are still valid.</p>
+            <p>And your second bloom may be the most beautiful chapter yet.</p>
             <p>Welcome to the journey.</p>
             
             <div class="nancy-signature">With love,<br>Nancy Muchiri</div>

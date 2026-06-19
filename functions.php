@@ -84,3 +84,19 @@ $bunyad = Bunyad::core()->init(apply_filters('bunyad_init_config', [
 
 	'add_sidebar_class' => false,
 ]));
+
+// --- Footer Copyright Migration Function ---
+add_action('init', 'smartmag_update_footer_copyright');
+function smartmag_update_footer_copyright() {
+    if (get_option('footer_copyright_migration_v1')) {
+        return;
+    }
+    
+    $options = get_option('smartmag_theme_options');
+    if (is_array($options)) {
+        $options['footer_copyright'] = '&copy; 2025 Everyday Mindful Moments. Designed by Everyday Mindful Moments.';
+        update_option('smartmag_theme_options', $options);
+    }
+    
+    update_option('footer_copyright_migration_v1', true);
+}

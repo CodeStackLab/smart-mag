@@ -370,6 +370,16 @@ function nancy_customize_register($wp_customize) {
         'type'     => 'url',
     ));
 
+    $wp_customize->add_setting('nancy_instagram_url', array(
+        'default'   => 'https://www.instagram.com/everydaymindfulmoments/',
+        'transport' => 'refresh',
+    ));
+    $wp_customize->add_control('nancy_instagram_url', array(
+        'label'    => __('Instagram URL', 'smartmag'),
+        'section'  => 'nancy_page_settings',
+        'type'     => 'url',
+    ));
+
     $wp_customize->add_setting('nancy_tiktok_url', array(
         'default'   => 'https://www.tiktok.com/@ayomifybooktok',
         'transport' => 'refresh',
@@ -380,12 +390,42 @@ function nancy_customize_register($wp_customize) {
         'type'     => 'url',
     ));
 
-    $wp_customize->add_setting('nancy_instagram_url', array(
-        'default'   => 'https://www.instagram.com/everydaymindfulmoments/',
+    $wp_customize->add_setting('nancy_twitter_url', array(
+        'default'   => '',
         'transport' => 'refresh',
     ));
-    $wp_customize->add_control('nancy_instagram_url', array(
-        'label'    => __('Instagram URL', 'smartmag'),
+    $wp_customize->add_control('nancy_twitter_url', array(
+        'label'    => __('Twitter (X) URL', 'smartmag'),
+        'section'  => 'nancy_page_settings',
+        'type'     => 'url',
+    ));
+
+    $wp_customize->add_setting('nancy_linkedin_url', array(
+        'default'   => '',
+        'transport' => 'refresh',
+    ));
+    $wp_customize->add_control('nancy_linkedin_url', array(
+        'label'    => __('LinkedIn URL', 'smartmag'),
+        'section'  => 'nancy_page_settings',
+        'type'     => 'url',
+    ));
+
+    $wp_customize->add_setting('nancy_pinterest_url', array(
+        'default'   => '',
+        'transport' => 'refresh',
+    ));
+    $wp_customize->add_control('nancy_pinterest_url', array(
+        'label'    => __('Pinterest URL', 'smartmag'),
+        'section'  => 'nancy_page_settings',
+        'type'     => 'url',
+    ));
+
+    $wp_customize->add_setting('nancy_youtube_url', array(
+        'default'   => '',
+        'transport' => 'refresh',
+    ));
+    $wp_customize->add_control('nancy_youtube_url', array(
+        'label'    => __('YouTube URL', 'smartmag'),
         'section'  => 'nancy_page_settings',
         'type'     => 'url',
     ));

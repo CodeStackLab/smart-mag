@@ -65,12 +65,17 @@ get_header();
         overflow: hidden;
         box-shadow: 0 20px 45px rgba(0, 0, 0, 0.1);
         margin-bottom: 30px;
+        aspect-ratio: 4/5;
+        width: 100%;
+        max-width: 100%;
     }
 
     .nancy-hero-image {
         width: 100%;
-        height: auto;
+        height: 100%;
         display: block;
+        object-fit: cover;
+        object-position: center top;
         transition: transform 0.5s ease;
     }
 

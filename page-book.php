@@ -456,7 +456,7 @@ get_header();
             <div class="nancy-video-subtitle">Watch the inspiring trailer about reclaiming midlife, wellness, and self-love</div>
             
             <div class="nancy-video-wrapper" id="nancyVideoWrap">
-                <video id="nancyBookVideo" playsinline preload="metadata" poster="https://i0.wp.com/everydaymindfulmoments.blog/wp-content/uploads/2026/06/The-second-bloom-new-page.jpg?resize=768%2C511&ssl=1" controls>
+                <video id="nancyBookVideo" playsinline preload="metadata" controls>
                     <source src="https://videos.files.wordpress.com/McJnkqel/second-bloom.mov" type="video/quicktime" />
                     <source src="https://videos.files.wordpress.com/McJnkqel/second-bloom.mov" type="video/mp4" />
                     Your browser does not support video playback.

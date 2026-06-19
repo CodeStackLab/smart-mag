@@ -41,12 +41,12 @@ get_header();
         margin-bottom: 80px;
     }
 
-    /* Hero Layout */
+    /* Hero Layout - Large Left Image, Scrollable Right Biography */
     .nancy-hero {
         display: grid;
-        grid-template-columns: 1fr 1.2fr;
-        gap: 50px;
-        align-items: center;
+        grid-template-columns: 4.5fr 7.5fr;
+        gap: 60px;
+        align-items: start;
         background: var(--nancy-card-bg);
         border-radius: 24px;
         padding: 60px;
@@ -54,11 +54,17 @@ get_header();
         border: 1px solid var(--nancy-border);
     }
 
+    .nancy-hero-left {
+        position: -webkit-sticky;
+        position: sticky;
+        top: 40px;
+    }
+
     .nancy-hero-image-wrap {
-        position: relative;
         border-radius: 18px;
         overflow: hidden;
-        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+        box-shadow: 0 20px 45px rgba(0, 0, 0, 0.1);
+        margin-bottom: 30px;
     }
 
     .nancy-hero-image {
@@ -88,13 +94,16 @@ get_header();
         color: var(--nancy-accent);
         text-transform: uppercase;
         letter-spacing: 2px;
-        margin-bottom: 25px;
+        margin-bottom: 30px;
+        border-bottom: 2px solid var(--nancy-bg);
+        padding-bottom: 15px;
     }
 
     .nancy-hero-details p {
-        font-size: 1.15rem;
-        color: var(--nancy-muted);
-        margin-bottom: 30px;
+        font-size: 1.1rem;
+        color: var(--nancy-text);
+        margin-bottom: 20px;
+        text-align: justify;
     }
 
     /* Social Icons Styles */
@@ -102,6 +111,7 @@ get_header();
         display: flex;
         gap: 15px;
         margin-bottom: 35px;
+        justify-content: center;
     }
 
     .nancy-social-link {
@@ -154,38 +164,19 @@ get_header();
         box-shadow: 0 12px 30px rgba(200, 122, 83, 0.25);
     }
 
-    /* Biography Grid */
-    .nancy-bio-section {
-        display: grid;
-        grid-template-columns: 1.2fr 0.8fr;
-        gap: 50px;
-        margin-top: 60px;
-    }
-
-    .nancy-bio-text h2 {
-        font-family: var(--nancy-font-serif);
-        font-size: 2.2rem;
-        margin-top: 0;
-        margin-bottom: 25px;
-    }
-
-    .nancy-bio-text p {
-        font-size: 1.1rem;
-        color: var(--nancy-text);
-        margin-bottom: 20px;
-    }
-
+    /* Loves Sidebar (inside Hero Left) */
     .nancy-bio-sidebar {
-        background: var(--nancy-card-bg);
+        background: var(--nancy-bg);
         border-radius: 20px;
-        padding: 40px;
+        padding: 30px;
         border: 1px solid var(--nancy-border);
-        align-self: start;
+        margin-top: 30px;
+        text-align: left;
     }
 
     .nancy-bio-sidebar h3 {
         font-family: var(--nancy-font-serif);
-        font-size: 1.5rem;
+        font-size: 1.4rem;
         margin-top: 0;
         margin-bottom: 20px;
         color: var(--nancy-accent);
@@ -199,10 +190,11 @@ get_header();
 
     .nancy-loves-list li {
         position: relative;
-        padding-left: 30px;
-        margin-bottom: 18px;
-        font-size: 1.05rem;
+        padding-left: 25px;
+        margin-bottom: 12px;
+        font-size: 0.98rem;
         color: var(--nancy-text);
+        line-height: 1.6;
     }
 
     .nancy-loves-list li::before {
@@ -210,25 +202,24 @@ get_header();
         position: absolute;
         left: 0;
         color: var(--nancy-accent);
-        font-size: 1.2rem;
+        font-size: 1.1rem;
         top: -1px;
     }
 
     /* Quote Banner */
     .nancy-quote-banner {
-        grid-column: 1 / -1;
         background: linear-gradient(135deg, var(--nancy-accent) 0%, var(--nancy-accent-hover) 100%);
         color: #fff;
-        border-radius: 24px;
-        padding: 50px;
+        border-radius: 20px;
+        padding: 40px;
         text-align: center;
         box-shadow: 0 15px 35px rgba(200, 122, 83, 0.15);
-        margin-top: 20px;
+        margin: 40px 0;
     }
 
     .nancy-quote-banner blockquote {
         font-family: var(--nancy-font-serif);
-        font-size: 1.9rem;
+        font-size: 1.6rem;
         font-style: italic;
         margin: 0;
         line-height: 1.6;
@@ -477,22 +468,21 @@ get_header();
         .nancy-hero {
             grid-template-columns: 1fr;
             padding: 40px;
-            gap: 30px;
+            gap: 40px;
             text-align: center;
         }
         
+        .nancy-hero-left {
+            position: static;
+        }
+        
         .nancy-hero-image-wrap {
-            max-width: 360px;
-            margin: 0 auto;
+            max-width: 450px;
+            margin: 0 auto 30px auto;
         }
         
         .nancy-social-list {
             justify-content: center;
-        }
-        
-        .nancy-bio-section {
-            grid-template-columns: 1fr;
-            gap: 40px;
         }
         
         .nancy-book-section {
@@ -541,15 +531,13 @@ get_header();
 <div class="nancy-author-page">
     <div class="nancy-container">
         
-        <!-- HERO SECTION -->
+        <!-- HERO & BIOGRAPHY COMBINED SECTION -->
         <section class="nancy-section nancy-hero">
-            <div class="nancy-hero-image-wrap">
-                <img class="nancy-hero-image" src="<?php echo esc_url(get_stylesheet_directory_uri() . '/images/nancy-profile.jpg'); ?>" alt="Nancy Muchiri - Author of The Second Bloom">
-            </div>
-            <div class="nancy-hero-details">
-                <h1>Meet Nancy Muchiri</h1>
-                <div class="nancy-hero-subtitle">Author • Entrepreneur • Speaker • Advocate for Personal Growth</div>
-                <p>Nancy is the creator of <strong>Everyday Mindful Moments</strong>, a lifestyle and wellness platform focused on mindfulness and intentional living. Her writing and advocacy inspire women around the world to find their voice, navigate major life transitions with confidence, and embrace the beautiful opportunities that come with starting anew.</p>
+            <!-- Left Sticky Sidebar containing Large Portrait Photo & Loves -->
+            <div class="nancy-hero-left">
+                <div class="nancy-hero-image-wrap">
+                    <img class="nancy-hero-image" src="<?php echo esc_url(get_stylesheet_directory_uri() . '/images/nancy-profile.jpg'); ?>" alt="Nancy Muchiri - Meet Nancy">
+                </div>
                 
                 <!-- Social Connect Links -->
                 <div class="nancy-social-list">
@@ -571,40 +559,45 @@ get_header();
                     </a>
                 </div>
 
-                <a class="nancy-btn" href="#the-second-bloom">Discover Nancy's Book ↓</a>
+                <!-- A Few Things Nancy Loves -->
+                <div class="nancy-bio-sidebar">
+                    <h3>A Few Things Nancy Loves</h3>
+                    <ul class="nancy-loves-list">
+                        <li>Spending quality time with family and friends</li>
+                        <li>Celebrating life's milestones and special moments</li>
+                        <li>Traveling and experiencing different cultures</li>
+                        <li>Encouraging and uplifting others</li>
+                        <li>Lifelong learning and personal growth</li>
+                        <li>Creating meaningful connections and memories</li>
+                    </ul>
+                    <p style="font-size: 0.92rem; font-style: italic; margin-top: 20px; color: var(--nancy-muted); line-height: 1.5; border-top: 1px dashed var(--nancy-border); padding-top: 15px;">
+                        Nancy believes that life's richest blessings are found in the relationships we nurture, the lessons we learn, and the courage we find to keep growing through every season.
+                    </p>
+                </div>
             </div>
-        </section>
 
-        <!-- NANCY'S BIOGRAPHY & SIDEBAR -->
-        <section class="nancy-section nancy-bio-section">
-            <div class="nancy-bio-text">
-                <h2>The Journey Behind the Advocacy</h2>
+            <!-- Right Detail Biography -->
+            <div class="nancy-hero-details">
+                <h1>Meet Nancy Muchiri</h1>
+                <div class="nancy-hero-subtitle">Author • Entrepreneur • Speaker • Advocate for Personal Growth</div>
+                
                 <p>Nancy Muchiri is an author, entrepreneur, and lifelong learner whose journey spans continents, cultures, and transformative life experiences.</p>
                 <p>Born and raised in Kenya, Nancy pursued her higher education at St. Mary's University in Canada before continuing her academic and professional journey in the United States. She later earned her Bachelor's Degree from Rutgers Business School, combining her passion for education with a strong foundation in business and leadership.</p>
                 <p>Throughout her life, Nancy has embraced change with courage and determination. From pursuing higher education abroad to balancing motherhood, career aspirations, and personal growth, she has learned that life's greatest transformations often emerge from its most challenging seasons.</p>
                 <p>As a mother, Nancy treasures family above all else. She finds her greatest joy in spending time with her children, family, and friends, celebrating life's milestones, creating lasting memories, and nurturing meaningful relationships. Her experiences as a mother, daughter, friend, and professional have shaped the wisdom and perspective she shares through her writing.</p>
                 <p>Nancy's debut book, <em>The Second Bloom: Midlife, Love, Identity, and the Courage to Choose Yourself Again</em>, was inspired by her own journey of self-discovery, resilience, and reinvention. Through heartfelt storytelling and honest reflection, she encourages women to embrace change, rediscover their identity, and recognize that it is never too late to pursue a life filled with purpose, joy, and authenticity.</p>
-                <p>Today, Nancy is passionate about inspiring women to navigate life's transitions with confidence, resilience, and hope. Her mission is to remind others that growth has no age limit, dreams never expire, and some of life's most beautiful chapters begin when we have the courage to start again.</p>
-            </div>
-            
-            <div class="nancy-bio-sidebar">
-                <h3>A Few Things Nancy Loves</h3>
-                <ul class="nancy-loves-list">
-                    <li>Spending quality time with family and friends</li>
-                    <li>Celebrating life's milestones and special moments</li>
-                    <li>Traveling and experiencing different cultures</li>
-                    <li>Encouraging and uplifting others</li>
-                    <li>Lifelong learning and personal growth</li>
-                    <li>Creating meaningful connections and memories</li>
-                </ul>
-                <p style="font-size: 0.95rem; font-style: italic; margin-top: 25px; color: var(--nancy-muted); line-height: 1.6;">
-                    Nancy believes that life's richest blessings are found in the relationships we nurture, the lessons we learn, and the courage we find to keep growing through every season.
-                </p>
-            </div>
+                <p>Today, Nancy is passionate about inspiring women to navigate life's transitions with confidence, resilience, and hope. Her message is simple but powerful:</p>
+                
+                <!-- Quote Banner inside Biography -->
+                <div class="nancy-quote-banner">
+                    <blockquote>"Your story is still being written. Every season offers a new opportunity to bloom."</blockquote>
+                </div>
 
-            <!-- Quote Banner Callout -->
-            <div class="nancy-quote-banner">
-                <blockquote>"Your story is still being written. Every season offers a new opportunity to bloom."</blockquote>
+                <p>Whether through her writing, speaking engagements, or community involvement, Nancy's mission is to remind others that growth has no age limit, dreams never expire, and some of life's most beautiful chapters begin when we have the courage to start again.</p>
+
+                <div style="margin-top: 35px; text-align: center;">
+                    <a class="nancy-btn" href="#the-second-bloom">Discover Nancy's Book ↓</a>
+                </div>
             </div>
         </section>
 

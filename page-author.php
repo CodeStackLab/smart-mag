@@ -236,8 +236,25 @@ get_header();
         color: #fff;
     }
 
+    /* Mobile Specific Layout Classes */
+    .nancy-mobile-title {
+        display: none;
+    }
+    
+    .nancy-desktop-title {
+        display: block;
+    }
+
     /* Responsive Queries */
     @media (max-width: 991px) {
+        .nancy-mobile-title {
+            display: block;
+            margin-bottom: 30px;
+        }
+        
+        .nancy-desktop-title {
+            display: none;
+        }
         .nancy-hero {
             grid-template-columns: 1fr;
             padding: 40px;
@@ -301,9 +318,16 @@ get_header();
 <div class="nancy-author-page">
     <div class="nancy-container">
         
-        <!-- HERO & BIOGRAPHY COMBINED SECTION -->
+        <!-- Hero Section -->
         <section class="nancy-section nancy-hero">
-            <!-- Left Sticky Sidebar containing Large Portrait Photo & Loves -->
+            
+            <!-- Mobile Title (Visible only on max-width 991px) -->
+            <div class="nancy-mobile-title">
+                <h1>Meet Nancy Muchiri</h1>
+                <div class="nancy-hero-subtitle">Author • Entrepreneur • Speaker • Advocate for Personal Growth</div>
+            </div>
+
+            <!-- Left Image & Socials -->
             <div class="nancy-hero-left">
                 <div class="nancy-hero-image-wrap">
                     <img class="nancy-hero-image" src="<?php echo esc_url(get_theme_mod('nancy_profile_image_v2', get_stylesheet_directory_uri() . '/images/nancy-profile-v2.jpg')); ?>" alt="Nancy Muchiri - Meet Nancy">
@@ -394,8 +418,10 @@ get_header();
 
             <!-- Right Detail Biography -->
             <div class="nancy-hero-details">
-                <h1>Meet Nancy Muchiri</h1>
-                <div class="nancy-hero-subtitle">Author • Entrepreneur • Speaker • Advocate for Personal Growth</div>
+                <div class="nancy-desktop-title">
+                    <h1>Meet Nancy Muchiri</h1>
+                    <div class="nancy-hero-subtitle">Author • Entrepreneur • Speaker • Advocate for Personal Growth</div>
+                </div>
                 
                 <p>Nancy Muchiri is an author, entrepreneur, and lifelong learner whose journey spans continents, cultures, and transformative life experiences.</p>
                 <p>Born and raised in Kenya, Nancy pursued her higher education at St. Mary's University in Canada before continuing her academic and professional journey in the United States. She later earned her Bachelor's Degree from Rutgers Business School, combining her passion for education with a strong foundation in business and leadership.</p>

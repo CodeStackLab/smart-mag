@@ -44,7 +44,7 @@ get_header();
     /* Hero Layout - Large Left Image, Scrollable Right Biography */
     .nancy-hero {
         display: grid;
-        grid-template-columns: 6fr 6fr;
+        grid-template-columns: 5.5fr 6.5fr; /* Keep decent text width */
         gap: 60px;
         align-items: start;
         background: var(--nancy-card-bg);
@@ -65,7 +65,7 @@ get_header();
         overflow: hidden;
         box-shadow: 0 20px 45px rgba(0, 0, 0, 0.1);
         margin-bottom: 30px;
-        aspect-ratio: 4/5;
+        aspect-ratio: 1/1; /* Square to make it wider */
         width: 100%;
         max-width: 100%;
     }
@@ -75,7 +75,7 @@ get_header();
         height: 100%;
         display: block;
         object-fit: cover;
-        object-position: center top;
+        object-position: 25% 20%; /* Focus on the left where the person is */
         transition: transform 0.5s ease;
     }
 

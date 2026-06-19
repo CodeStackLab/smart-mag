@@ -311,3 +311,19 @@ function smartmag_force_meet_nancy_menu() {
     
     update_option('menu_fix_migration_v3', true);
 }
+
+// --- Force Footer Copyright Migration Function 2026 (v4) ---
+add_action('init', 'smartmag_force_update_footer_copyright_2026_v4');
+function smartmag_force_update_footer_copyright_2026_v4() {
+    if (get_option('footer_copyright_migration_v4')) {
+        return;
+    }
+    
+    $options = get_option('smartmag_theme_options');
+    if (is_array($options)) {
+        $options['footer_copyright'] = '&copy; 2026 Everyday Mindful Moments. Designed by Everyday Mindful Moments.';
+        update_option('smartmag_theme_options', $options);
+    }
+    
+    update_option('footer_copyright_migration_v4', true);
+}

@@ -44,7 +44,7 @@ get_header();
     /* Hero Layout - Large Left Image, Scrollable Right Biography */
     .nancy-hero {
         display: grid;
-        grid-template-columns: 5.5fr 6.5fr; /* Keep decent text width */
+        grid-template-columns: 6.5fr 5.5fr; /* Increased image column width */
         gap: 60px;
         align-items: start;
         background: var(--nancy-card-bg);
@@ -65,7 +65,7 @@ get_header();
         overflow: hidden;
         box-shadow: 0 20px 45px rgba(0, 0, 0, 0.1);
         margin-bottom: 30px;
-        aspect-ratio: <?php echo esc_attr(get_theme_mod('nancy_profile_image_aspect_ratio', '1/1')); ?>;
+        aspect-ratio: <?php echo esc_attr(get_theme_mod('nancy_profile_image_aspect_ratio', '3/4')); ?>;
         width: <?php echo esc_attr(get_theme_mod('nancy_profile_image_width', '100')); ?>%;
         max-width: 100%;
         margin-left: auto;
@@ -77,7 +77,7 @@ get_header();
         height: 100%;
         display: block;
         object-fit: cover;
-        object-position: <?php echo esc_attr(get_theme_mod('nancy_profile_image_position', '25% 20%')); ?>;
+        object-position: <?php echo esc_attr(get_theme_mod('nancy_profile_image_position', 'left center')); ?>;
         transition: transform 0.5s ease;
     }
 

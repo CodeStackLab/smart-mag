@@ -363,7 +363,7 @@ function nancy_customize_register($wp_customize) {
 
     // Image Aspect Ratio
     $wp_customize->add_setting('nancy_profile_image_aspect_ratio', array(
-        'default'   => '1/1',
+        'default'   => '3/4',
         'transport' => 'refresh',
     ));
     $wp_customize->add_control('nancy_profile_image_aspect_ratio', array(
@@ -382,7 +382,7 @@ function nancy_customize_register($wp_customize) {
 
     // Image Focus Position
     $wp_customize->add_setting('nancy_profile_image_position', array(
-        'default'   => '25% 20%',
+        'default'   => 'left center',
         'transport' => 'refresh',
     ));
     $wp_customize->add_control('nancy_profile_image_position', array(

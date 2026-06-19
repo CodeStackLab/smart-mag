@@ -65,9 +65,11 @@ get_header();
         overflow: hidden;
         box-shadow: 0 20px 45px rgba(0, 0, 0, 0.1);
         margin-bottom: 30px;
-        aspect-ratio: 1/1; /* Square to make it wider */
-        width: 100%;
+        aspect-ratio: <?php echo esc_attr(get_theme_mod('nancy_profile_image_aspect_ratio', '1/1')); ?>;
+        width: <?php echo esc_attr(get_theme_mod('nancy_profile_image_width', '100')); ?>%;
         max-width: 100%;
+        margin-left: auto;
+        margin-right: auto;
     }
 
     .nancy-hero-image {
@@ -75,7 +77,7 @@ get_header();
         height: 100%;
         display: block;
         object-fit: cover;
-        object-position: 25% 20%; /* Focus on the left where the person is */
+        object-position: <?php echo esc_attr(get_theme_mod('nancy_profile_image_position', '25% 20%')); ?>;
         transition: transform 0.5s ease;
     }
 

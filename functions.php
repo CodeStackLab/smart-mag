@@ -348,6 +348,57 @@ function nancy_customize_register($wp_customize) {
         'settings' => 'nancy_profile_image_v2',
     )));
 
+    // Image Width
+    $wp_customize->add_setting('nancy_profile_image_width', array(
+        'default'   => '100',
+        'transport' => 'refresh',
+    ));
+    $wp_customize->add_control('nancy_profile_image_width', array(
+        'label'       => __('Image Width (%)', 'smartmag'),
+        'description' => __('Adjust how wide the image appears in its column.', 'smartmag'),
+        'section'     => 'nancy_page_settings',
+        'type'        => 'number',
+        'input_attrs' => array('min' => 10, 'max' => 100, 'step' => 1)
+    ));
+
+    // Image Aspect Ratio
+    $wp_customize->add_setting('nancy_profile_image_aspect_ratio', array(
+        'default'   => '1/1',
+        'transport' => 'refresh',
+    ));
+    $wp_customize->add_control('nancy_profile_image_aspect_ratio', array(
+        'label'    => __('Image Aspect Ratio (Shape)', 'smartmag'),
+        'description'=> __('Change the shape/height of the image.', 'smartmag'),
+        'section'  => 'nancy_page_settings',
+        'type'     => 'select',
+        'choices'  => array(
+            '1/1'  => __('Square (1:1)', 'smartmag'),
+            '4/5'  => __('Portrait (4:5)', 'smartmag'),
+            '3/4'  => __('Classic Portrait (3:4)', 'smartmag'),
+            '16/9' => __('Landscape (16:9)', 'smartmag'),
+            'auto' => __('Original (No crop)', 'smartmag'),
+        ),
+    ));
+
+    // Image Focus Position
+    $wp_customize->add_setting('nancy_profile_image_position', array(
+        'default'   => '25% 20%',
+        'transport' => 'refresh',
+    ));
+    $wp_customize->add_control('nancy_profile_image_position', array(
+        'label'    => __('Image Focus (Crop Position)', 'smartmag'),
+        'description'=> __('Useful if the image has unwanted white space.', 'smartmag'),
+        'section'  => 'nancy_page_settings',
+        'type'     => 'select',
+        'choices'  => array(
+            'center center' => __('Center', 'smartmag'),
+            'center top'    => __('Top Center', 'smartmag'),
+            '25% 20%'       => __('Top Left Focus (Current)', 'smartmag'),
+            'left center'   => __('Left Center', 'smartmag'),
+            'right center'  => __('Right Center', 'smartmag'),
+        ),
+    ));
+
     // Book Cover Image
     $wp_customize->add_setting('nancy_book_cover', array(
         'default'   => get_stylesheet_directory_uri() . '/images/book-cover.jpg',

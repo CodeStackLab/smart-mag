@@ -353,25 +353,47 @@ get_header();
         
         .nancy-book-left {
             position: static;
+            text-align: center;
         }
 
         .nancy-book-cover-wrap {
-            max-width: 260px;
+            max-width: 320px;
             margin: 0 auto;
+        }
+
+        .nancy-mission-box {
+            border-radius: 20px;
+            border-left: none;
+            border-top: 5px solid var(--nancy-accent);
+            padding: 30px;
+            margin: 40px 0;
         }
     }
 
     @media (max-width: 576px) {
         .nancy-container {
-            padding: 40px 15px;
+            padding: 30px 15px;
+        }
+
+        .nancy-book-section {
+            padding: 30px 20px;
         }
         
         .nancy-letter-card {
             padding: 30px 20px;
+            margin: 50px auto;
         }
         
         .nancy-video-section {
             padding: 30px 20px;
+        }
+
+        .nancy-book-details h2 {
+            font-size: 2rem;
+        }
+
+        .nancy-book-cover-wrap {
+            max-width: 250px;
         }
     }
 </style>

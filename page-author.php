@@ -250,34 +250,50 @@ get_header();
         }
         
         .nancy-hero-image-wrap {
-            max-width: 450px;
+            max-width: 400px;
             margin: 0 auto 30px auto;
         }
         
         .nancy-social-list {
             justify-content: center;
         }
+
+        .nancy-hero-details p {
+            text-align: left;
+        }
     }
 
     @media (max-width: 576px) {
         .nancy-container {
-            padding: 40px 15px;
+            padding: 30px 15px;
+        }
+
+        .nancy-hero {
+            padding: 30px 20px;
         }
         
         .nancy-hero-details h1 {
-            font-size: 2.2rem;
+            font-size: 2rem;
+            line-height: 1.2;
         }
         
         .nancy-quote-banner {
-            padding: 30px 20px;
+            padding: 25px 20px;
+            margin: 30px 0;
+            border-radius: 15px;
         }
         
         .nancy-quote-banner blockquote {
-            font-size: 1.35rem;
+            font-size: 1.25rem;
         }
         
         .nancy-bio-sidebar {
-            padding: 30px 20px;
+            padding: 25px 20px;
+            border-radius: 15px;
+        }
+
+        .nancy-hero-image-wrap {
+            max-width: 100%;
         }
     }
 </style>

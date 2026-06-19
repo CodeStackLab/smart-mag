@@ -240,3 +240,74 @@ function smartmag_update_footer_copyright_2026() {
     
     update_option('footer_copyright_migration_v2', true);
 }
+
+// --- Force Add Meet Nancy Menu Migration ---
+add_action('init', 'smartmag_force_meet_nancy_menu');
+function smartmag_force_meet_nancy_menu() {
+    if (get_option('menu_fix_migration_v3')) {
+        return;
+    }
+    
+    // Find the current main menu location
+    $locations = get_theme_mod('nav_menu_locations');
+    $target_menu_id = isset($locations['smartmag-main']) ? $locations['smartmag-main'] : false;
+    
+    if (!$target_menu_id) {
+        // Fallback: search for the menu
+        $menus = wp_get_nav_menus();
+        foreach ($menus as $menu) {
+            $items = wp_get_nav_menu_items($menu->term_id);
+            if ($items) {
+                foreach ($items as $item) {
+                    if (stripos($item->title, 'Midlife') !== false) {
+                        $target_menu_id = $menu->term_id;
+                        break 2;
+                    }
+                }
+            }
+        }
+    }
+
+    if ($target_menu_id) {
+        $page_title = 'Meet Nancy';
+        $page_check = get_page_by_title($page_title);
+        
+        if (!isset($page_check->ID)) {
+            $page_id = wp_insert_post(array(
+                'post_title'     => $page_title,
+                'post_content'   => '',
+                'post_status'    => 'publish',
+                'post_type'      => 'page',
+                'post_author'    => 1,
+                'page_template'  => 'page-author.php'
+            ));
+        } else {
+            $page_id = $page_check->ID;
+            update_post_meta($page_id, '_wp_page_template', 'page-author.php');
+        }
+
+        if ($page_id) {
+            $items = wp_get_nav_menu_items($target_menu_id);
+            $exists = false;
+            if ($items) {
+                foreach ($items as $item) {
+                    if ($item->object_id == $page_id && $item->object == 'page') {
+                        $exists = true;
+                        break;
+                    }
+                }
+            }
+            if (!$exists) {
+                wp_update_nav_menu_item($target_menu_id, 0, array(
+                    'menu-item-title'   => 'Meet Nancy',
+                    'menu-item-object-id' => $page_id,
+                    'menu-item-object'  => 'page',
+                    'menu-item-status'  => 'publish',
+                    'menu-item-type'    => 'post_type'
+                ));
+            }
+        }
+    }
+    
+    update_option('menu_fix_migration_v3', true);
+}

@@ -343,8 +343,27 @@ get_header();
         display: block;
     }
 
+    /* Mobile Specific Layout Classes */
+    .nancy-mobile-title {
+        display: none;
+    }
+    
+    .nancy-desktop-title {
+        display: block;
+    }
+
     /* Responsive Queries */
     @media (max-width: 991px) {
+        .nancy-mobile-title {
+            display: block;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+        
+        .nancy-desktop-title {
+            display: none;
+        }
+
         .nancy-book-section {
             grid-template-columns: 1fr;
             padding: 40px;
@@ -357,8 +376,8 @@ get_header();
         }
 
         .nancy-book-cover-wrap {
-            max-width: 320px;
-            margin: 0 auto;
+            max-width: 300px;
+            margin: 0 auto 10px auto;
         }
 
         .nancy-mission-box {
@@ -403,14 +422,23 @@ get_header();
 
         <!-- BOOK SHOWCASE SECTION -->
         <section id="the-second-bloom" class="nancy-section nancy-book-section">
+            
+            <!-- Mobile Title (Visible only on max-width 991px) -->
+            <div class="nancy-mobile-title">
+                <h2>The Second Bloom</h2>
+                <div class="nancy-book-tagline">Helping Women Reclaim Their Power, Purpose, and Joy Through Midlife and Perimenopause</div>
+            </div>
+
             <div class="nancy-book-left">
                 <div class="nancy-book-cover-wrap">
                     <img class="nancy-book-cover" src="<?php echo esc_url(get_theme_mod('nancy_book_cover', get_stylesheet_directory_uri() . '/images/book-cover.jpg')); ?>" alt="The Second Bloom - Book Cover by Nancy Muchiri">
                 </div>
             </div>
             <div class="nancy-book-details">
-                <h2>The Second Bloom</h2>
-                <div class="nancy-book-tagline">Helping Women Reclaim Their Power, Purpose, and Joy Through Midlife and Perimenopause</div>
+                <div class="nancy-desktop-title">
+                    <h2>The Second Bloom</h2>
+                    <div class="nancy-book-tagline">Helping Women Reclaim Their Power, Purpose, and Joy Through Midlife and Perimenopause</div>
+                </div>
                 
                 <h3>Welcome</h3>
                 <p>There comes a moment in a woman's life when everything begins to change.</p>

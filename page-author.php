@@ -44,7 +44,7 @@ get_header();
     /* Hero Layout - Large Left Image, Scrollable Right Biography */
     .nancy-hero {
         display: grid;
-        grid-template-columns: 5.5fr 6.5fr;
+        grid-template-columns: 6fr 6fr;
         gap: 60px;
         align-items: start;
         background: var(--nancy-card-bg);

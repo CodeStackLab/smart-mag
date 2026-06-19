@@ -60,8 +60,8 @@ get_header();
 
     .nancy-btn:hover {
         background: var(--nancy-accent-hover);
-        transform: translateY(-2px);
-        box-shadow: 0 12px 30px rgba(200, 122, 83, 0.25);
+        transform: translateY(-3px);
+        box-shadow: 0 12px 25px rgba(200, 122, 83, 0.3);
     }
 
     /* Book Section */
@@ -74,6 +74,17 @@ get_header();
         border-radius: 24px;
         padding: 60px;
         border: 1px solid var(--nancy-border);
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.04);
+        animation: nancyFadeInUp 0.8s ease-out forwards;
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    
+    @keyframes nancyFadeInUp {
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
     }
 
     .nancy-book-left {
@@ -96,44 +107,50 @@ get_header();
         transform: translateY(-5px) rotate(-1deg);
     }
 
-    .nancy-book-details h2 {
+    .nancy-book-details h2, .nancy-mobile-title h2 {
         font-family: var(--nancy-font-serif);
-        font-size: 2.4rem;
+        font-size: 2.8rem;
         margin-top: 0;
-        margin-bottom: 10px;
-        line-height: 1.3;
+        margin-bottom: 15px;
+        line-height: 1.2;
+        letter-spacing: -0.5px;
     }
 
     .nancy-book-tagline {
         font-size: 1.15rem;
         color: var(--nancy-accent);
         font-weight: 600;
-        margin-bottom: 25px;
+        margin-bottom: 35px;
+        line-height: 1.6;
+        letter-spacing: 0.5px;
     }
 
     .nancy-book-details h3 {
         font-family: var(--nancy-font-serif);
-        font-size: 1.45rem;
-        margin-top: 30px;
-        margin-bottom: 15px;
+        font-size: 1.55rem;
+        margin-top: 35px;
+        margin-bottom: 18px;
         color: var(--nancy-text);
         border-bottom: 1px solid var(--nancy-border);
-        padding-bottom: 5px;
+        padding-bottom: 8px;
     }
 
     .nancy-book-details p {
-        font-size: 1.05rem;
-        margin-bottom: 20px;
-        text-align: justify;
+        font-size: 1.12rem;
+        margin-bottom: 24px;
+        text-align: left;
+        line-height: 1.8;
+        color: #4a4846;
     }
 
     /* Mission Box */
     .nancy-mission-box {
         background: var(--nancy-bg);
         border-left: 5px solid var(--nancy-accent);
-        padding: 40px;
-        border-radius: 0 20px 20px 0;
-        margin: 50px 0;
+        padding: 50px;
+        border-radius: 0 24px 24px 0;
+        margin: 60px 0;
+        box-shadow: 0 15px 35px rgba(200, 122, 83, 0.05);
     }
 
     .nancy-mission-box h3 {

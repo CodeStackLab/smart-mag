@@ -50,8 +50,18 @@ get_header();
         background: var(--nancy-card-bg);
         border-radius: 24px;
         padding: 60px;
-        box-shadow: 0 15px 45px rgba(212, 140, 112, 0.05);
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.04);
         border: 1px solid var(--nancy-border);
+        animation: nancyFadeInUp 0.8s ease-out forwards;
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    
+    @keyframes nancyFadeInUp {
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
     }
 
     .nancy-hero-left {
@@ -86,32 +96,34 @@ get_header();
         transform: scale(1.02);
     }
 
-    .nancy-hero-details h1 {
+    .nancy-hero-details h1, .nancy-mobile-title h1 {
         font-family: var(--nancy-font-serif);
-        font-size: 3rem;
+        font-size: 3.2rem;
         font-weight: 700;
         color: var(--nancy-text);
         margin-top: 0;
-        margin-bottom: 10px;
-        line-height: 1.2;
+        margin-bottom: 15px;
+        line-height: 1.15;
+        letter-spacing: -0.5px;
     }
 
     .nancy-hero-subtitle {
-        font-size: 1.05rem;
+        font-size: 1.1rem;
         font-weight: 600;
         color: var(--nancy-accent);
         text-transform: uppercase;
         letter-spacing: 2px;
-        margin-bottom: 30px;
-        border-bottom: 2px solid var(--nancy-bg);
-        padding-bottom: 15px;
+        margin-bottom: 35px;
+        border-bottom: 2px solid var(--nancy-border);
+        padding-bottom: 18px;
     }
 
     .nancy-hero-details p {
-        font-size: 1.1rem;
+        font-size: 1.12rem;
         color: var(--nancy-text);
-        margin-bottom: 20px;
-        text-align: justify;
+        margin-bottom: 24px;
+        text-align: left;
+        line-height: 1.8;
     }
 
     /* Social Icons Styles */
@@ -160,16 +172,16 @@ get_header();
         font-weight: 600;
         border-radius: 30px;
         text-decoration: none !important;
-        transition: all 0.3s ease;
-        box-shadow: 0 10px 25px rgba(200, 122, 83, 0.15);
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        box-shadow: 0 8px 20px rgba(200, 122, 83, 0.2);
         border: none;
         cursor: pointer;
     }
 
     .nancy-btn:hover {
         background: var(--nancy-accent-hover);
-        transform: translateY(-2px);
-        box-shadow: 0 12px 30px rgba(200, 122, 83, 0.25);
+        transform: translateY(-3px);
+        box-shadow: 0 12px 25px rgba(200, 122, 83, 0.3);
     }
 
     /* Loves Sidebar (inside Hero Left) */
@@ -219,21 +231,36 @@ get_header();
         background: linear-gradient(135deg, var(--nancy-accent) 0%, var(--nancy-accent-hover) 100%);
         color: #fff;
         border-radius: 20px;
-        padding: 40px;
+        padding: 45px 50px;
         text-align: center;
-        box-shadow: 0 15px 35px rgba(200, 122, 83, 0.15);
-        margin: 40px 0;
+        box-shadow: 0 15px 35px rgba(200, 122, 83, 0.2);
+        margin: 45px 0;
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .nancy-quote-banner::before {
+        content: '"';
+        position: absolute;
+        top: -10px;
+        left: 20px;
+        font-size: 8rem;
+        font-family: var(--nancy-font-serif);
+        color: rgba(255, 255, 255, 0.1);
+        line-height: 1;
     }
 
     .nancy-quote-banner blockquote {
         font-family: var(--nancy-font-serif);
-        font-size: 1.6rem;
+        font-size: 1.7rem;
         font-style: italic;
         margin: 0;
-        line-height: 1.6;
+        line-height: 1.5;
         border: none;
         padding: 0;
         color: #fff;
+        position: relative;
+        z-index: 2;
     }
 
     /* Mobile Specific Layout Classes */
